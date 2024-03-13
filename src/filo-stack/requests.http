@@ -1,0 +1,16 @@
+### Add element to stack
+POST http://localhost:3000/filo-stack HTTP/1.1
+Content-Type: application/json
+
+{
+    "elementToAdd": 3
+}
+
+### get all elements in stack
+GET http://localhost:3000/filo-stack HTTP/1.1
+
+### Delete top element from stack
+DELETE http://localhost:3000/filo-stack/top
+
+### Delete all elements from stack
+DELETE http://localhost:3000/filo-stack/all HTTP/1.1
