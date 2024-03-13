@@ -1,73 +1,55 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Technical Test Project for Metal Soft
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This repository contains the NestJS project developed by Kristiyan Yanakiev as part of the technical test for Metal Soft. The project implements a FILO (First In, Last Out) stack, allowing for dynamic data storage and retrieval in a stack structure.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Project Overview
 
-## Description
+ It showcases the creation of a simple API for managing a stack, including retrieving all elements, adding a single element, and deleting elements from the stack.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Installation
+To get started with this project, clone the repository and install the necessary dependencies.
 
 ```bash
-$ npm install
+git clone <repository-url>
+cd <project-directory>
+npm install
 ```
 
-## Running the app
+`Note!`: I am using REST Client for VS Code by Huachao Mao to test the endpoints, all described in `src/filo-stack/requests.http`
 
-```bash
-# development
-$ npm run start
+# API Endpoints
 
-# watch mode
-$ npm run start:dev
+The service provides the following endpoints for interacting with the FILO stack:
 
-# production mode
-$ npm run start:prod
+## Add Element to Stack
+
+Adds a new element to the stack.
+
+- URL: POST /filo-stack
+- Content-Type: application/json
+- Body:
+
+```json
+{
+    "elementToAdd": 3
+}
 ```
 
-## Test
+## Get All Elements in Stack
 
-```bash
-# unit tests
-$ npm run test
+Retrieves all elements currently in the stack, maintaining the FILO order.
 
-# e2e tests
-$ npm run test:e2e
+- URL: GET /filo-stack
 
-# test coverage
-$ npm run test:cov
-```
+## Delete Top Element from Stack
 
-## Support
+Removes the top element from the stack.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- URL: DELETE /filo-stack/top
 
-## Stay in touch
+## Delete All Elements from Stack
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Removes all elements from the stack.
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+- URL: DELETE /filo-stack/all
